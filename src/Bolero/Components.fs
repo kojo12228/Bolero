@@ -28,6 +28,7 @@ open Microsoft.AspNetCore.Components.Routing
 open Microsoft.JSInterop
 open Elmish
 open Bolero.Render
+open System.Runtime.CompilerServices
 
 /// Base class for components built from `Bolero.Node`s.
 /// [category: Components]
@@ -232,4 +233,5 @@ type ElementReferenceBinder() =
     /// This object must be bound using `Bolero.Html.attr.bindRef` before using this property.
     member _.Ref = ref
 
-    member internal _.SetRef(r) = ref <- r
+    /// Not directly used by applications.
+    member _.SetRef(r) = ref <- r

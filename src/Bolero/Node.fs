@@ -69,3 +69,9 @@ and Node =
     /// A single Blazor component, statically typed.
     static member BlazorComponent<'T when 'T :> IComponent>(attrs, children) =
         Node.Component(typeof<'T>, attrs, children)
+
+module Html =
+
+    /// Create an empty HTML fragment.
+    /// [category: HTML elements]
+    let empty = Empty
