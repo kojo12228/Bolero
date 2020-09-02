@@ -67,6 +67,11 @@ let cond<'T> (matching: 'T) (mkNode: 'T -> Node) =
 let forEach<'T> (items: seq<'T>) (mkNode: 'T -> Node) =
     Node.ForEach [for n in items -> mkNode n]
 
+/// Create a fragment that concatenates nodes for each indexed item in a sequence.
+/// [category: HTML elements]
+let forEachi<'T> (items: seq<'T>) (mkNode: int -> 'T -> Node) =
+    Node.ForEach [ for (i, n) in Seq.indexed items -> mkNode i n ]
+
 /// Create a node from a Blazor RenderFragment.
 let fragment (frag: RenderFragment) =
     Node.Fragment frag
